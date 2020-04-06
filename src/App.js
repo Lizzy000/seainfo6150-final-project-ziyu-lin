@@ -2,67 +2,41 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Home from "./Home/Home.jsx";
-import Foo from "./Foo/Foo.jsx";
-import Bar from "./Bar/Bar.jsx";
-import Baz from "./Baz/Baz.jsx";
+import About from "./About/About.jsx";
+import Blogs from "./Blogs/Blogs.jsx";
+import Categories from "./Categories/Categories.jsx";
 import Error from "./Error/Error.jsx";
+import Photo from "./Photo/Photo.jsx";
+import Comment from "./Comment/Comment.jsx";
+import HomeHeader from "./Home/HomeHeader.jsx";
+import ArticleText from "./Blogs/ArticleText";
 
-// here is some external content. look at the /baz route below
-// to see how this content is passed down to the components via props
-const externalContent = {
-  id: "article-1",
-  title: "An Article",
-  author: "April Bingham",
-  text: "Some text in the article"
-};
+import articles from "./Data/articles.json";
+
 
 function App() {
   return (
     <Router>
-      <header>
-        <nav>
-          <ul>
-            {/* these links should show you how to connect up a link to a specific route */}
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/foo">Foo</Link>
-            </li>
-            <li>
-              <Link to="/bar/hats/sombrero">Bar</Link>
-            </li>
-            <li>
-              <Link to="/baz">Baz</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+      
+      <HomeHeader />
+      
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/foo" exact component={Foo} />
-        {/* passing parameters via a route path */}
-        <Route
-          path="/bar/:categoryId/:productId"
-          exact
-          render={({ match }) => (
-            // getting the parameters from the url and passing
-            // down to the component as props
-            <Bar
-              categoryId={match.params.categoryId}
-              productId={match.params.productId}
-            />
-          )}
-        />
-        <Route
-          path="/baz"
-          exact
-          render={() => <Baz content={externalContent} />}
-        />
-        <Route component={Error} />
+        <Route path="/about" exact component={About} />
+        <Route path="/blogs" exact component={Blogs} />
+        <Route path="/photo" exact component={Photo} />
+        <Route path="/comment" exact component={Comment} />
+        <Route path="/404" component={Error} />
+
+        {Object.values(articles).map(article => (
+        
+        <Route path={`/blogs/${article.title}`} exact render={() => 
+            <ArticleText title={article.title} text={article.text} />} />
+        
+        ))}
       </Switch>
+
+      
     </Router>
   );
 }
