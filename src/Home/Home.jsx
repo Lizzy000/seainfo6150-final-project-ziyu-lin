@@ -4,8 +4,10 @@ import React from "react";
 const Home = props => {
 	
 	return (
-		
-		<h1> Welcome to my page! </h1>
+	<div>
+		<h1> Home </h1>
+		<img alt="welcome" src="/images/welcome.jpg"/>
+	</div>
 	);
 };
 

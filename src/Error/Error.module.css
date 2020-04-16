@@ -1,0 +1,25 @@
+.header {
+	font-size: 7.5em;
+    margin: 15px 0px;
+    font-weight: bold;
+}
+
+.message {
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.container {
+	text-align: center;
+}
+
+.error {
+	width: 100px;
+	height: 100px;
+}
+@media (max-height: 800px) {
+    img {
+        height: auto;
+        width: 50%;
+    }
+}

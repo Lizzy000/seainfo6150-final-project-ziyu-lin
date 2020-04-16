@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import ArticleListItem from "./ArticleListItem";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import styles from "./ArticleList.module.css";
 
 
 const ArticleList = props => {

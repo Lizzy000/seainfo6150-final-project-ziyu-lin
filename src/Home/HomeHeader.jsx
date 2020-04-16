@@ -1,31 +1,34 @@
-  
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from "./HomeHeader.module.css";
 
 
 const HomeHeader = props => {
   
   return (
     <header>
-        <nav>
+      <div>
+        <nav className={styles.nav}>
+          <img className={styles.pic} src="/images/girl.jpg" alt="avatar" />
           <ul>
-            <li>
+            <li className={styles.item}>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/about">About Me</Link>
+            <li className={styles.item}>
+              <Link to="/about">About</Link>
             </li>
-            <li>
+            <li className={styles.item}>
               <Link to="/blogs">Blogs</Link>
             </li>
-            <li>
+            <li className={styles.item}>
               <Link to="/photo">Photo</Link>
             </li>
-            <li>
+            <li className={styles.item}>
               <Link to="/comment">Comment</Link>
             </li>
           </ul>
         </nav>
+      </div>
   </header>
     
   );
