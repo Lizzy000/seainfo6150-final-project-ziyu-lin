@@ -25,7 +25,7 @@ function App() {
         <Route path="/blogs" exact component={Blogs} />
         <Route path="/photo" exact component={Photo} />
         <Route path="/comment" exact component={Comment} />
-        <Route component={Error} />
+        <Route path="/404" component={Error} />
 
         {Object.values(articles).map(article => (
         
